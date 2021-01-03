@@ -1,9 +1,5 @@
-(function(){
-
-    angular.module('Giphier', [
-        'SearchFormModule',
-        'ResultsModule'
-    ]);
-    
-}());
+angular.module('Giphier', [
+    'SearchFormModule',
+    'ResultsModule'
+]);
   

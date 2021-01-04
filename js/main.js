@@ -29,9 +29,6 @@ const players = {
 const showModal = function(message) {
   if (typeof message === 'string') {
     ui.modalMessages.innerHTML = message;
-    setTimeout(function() {
-      window.location.reload();
-    }, 3000)
   }
   ui.modal.style.display = 'block';
 }
@@ -99,25 +96,25 @@ const playGame = function(mode) {
       ui.controls.p1.style.visibility = 'visible';
       ui.controls.p2.style.visibility = 'visible';
       players.p1 = new Player('Player1');
-      ui.controls.p1.children[1].addEventListener('click', function(e) {
+      ui.controls.p1.children[1].onclick = function(e) {
         turn(players.p1) ? players.p1.play(1) : alert("Isn't your turn");
-      });
-      ui.controls.p1.children[2].addEventListener('click', function(e) {
+      };
+      ui.controls.p1.children[2].onclick = function(e) {
         turn(players.p1) ? players.p1.play(2) : alert("Isn't your turn");
-      });
-      ui.controls.p1.children[3].addEventListener('click', function(e) {
+      };
+      ui.controls.p1.children[3].onclick = function(e) {
         turn(players.p1) ? players.p1.play(3) : alert("Isn't your turn");
-      });
+      };
       players.p2 = new Player('Player2');
-      ui.controls.p2.children[1].addEventListener('click', function(e) {
+      ui.controls.p2.children[1].onclick = function(e) {
         turn(players.p2) ? players.p2.play(1) : alert("Isn't your turn");
-      });
-      ui.controls.p2.children[2].addEventListener('click', function(e) {
+      };
+      ui.controls.p2.children[2].onclick = function(e) {
         turn(players.p2) ? players.p2.play(2) : alert("Isn't your turn");
-      });
-      ui.controls.p2.children[3].addEventListener('click', function(e) {
+      };
+      ui.controls.p2.children[3].onclick = function(e) {
         turn(players.p2) ? players.p2.play(3) : alert("Isn't your turn");
-      });
+      };
       turn();
       break;
     case 'pvc':
@@ -125,7 +122,7 @@ const playGame = function(mode) {
       ui.controls.p2.style.visibility = 'hidden';
       players.p2 = new Computer('Computer');
       players.p1 = new Player('Player');
-      ui.controls.p1.children[1].addEventListener('click', function() {
+      ui.controls.p1.children[1].onclick = function() {
         if (turn(players.p1)) {
           players.p1.play(1)
           if (runningTotal < 21) {
@@ -134,8 +131,8 @@ const playGame = function(mode) {
         } else {
           alert("Isn't your turn");
         }
-      });
-      ui.controls.p1.children[2].addEventListener('click', function() {
+      };
+      ui.controls.p1.children[2].onclick = function() {
         if (turn(players.p1)) {
           players.p1.play(2)
           if (runningTotal < 21) {
@@ -144,8 +141,8 @@ const playGame = function(mode) {
         } else {
           alert("Isn't your turn");
         }
-      });
-      ui.controls.p1.children[3].addEventListener('click', function() {
+      };
+      ui.controls.p1.children[3].onclick = function() {
         if (turn(players.p1)) {
           players.p1.play(3)
           if (runningTotal < 21) {
@@ -154,7 +151,7 @@ const playGame = function(mode) {
         } else {
           alert("Isn't your turn");
         }
-      });
+      };
       turn();
       if (turn(players.p2)) {
         players.p2.play();
@@ -186,18 +183,18 @@ const chooseGameMode = function(mode) {
   playGame(mode);
 }
 
-ui.menu.newGame.addEventListener('click', showModal);
+ui.menu.newGame.onclick = showModal;
 
-ui.gameModes.pvp.addEventListener('click', function() {
+ui.gameModes.pvp.onclick = function() {
   chooseGameMode('pvp');
-});
+};
 
-ui.gameModes.pvc.addEventListener('click', function() {
+ui.gameModes.pvc.onclick = function() {
   chooseGameMode('pvc');
-});
+};
 
-ui.gameModes.cvc.addEventListener('click', function() {
+ui.gameModes.cvc.onclick = function() {
   chooseGameMode('cvc');
-});
+};
 
-ui.modalCloser.addEventListener('click', hideModal)
+ui.modalCloser.onclick = hideModal;

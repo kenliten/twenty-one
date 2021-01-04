@@ -8,17 +8,47 @@
 </head>
 <body>
 
+  <h1>Twenty One</h1>
+
   <div id="game-container">
-    <ul id="options">
-      <li class="option"><a href="#" class="option-link">New Game</a></li>
+    <ul id="menu">
+      <li class="menu-option"><a href="#" id="new-game-option" class="option-link">New Game</a></li>
     </ul>
     <div id="game">
-      <div id="player-one"></div>
-      <div id="board"></div>
-      <div id="player-two"></div>
+      <div id="player-one">
+        <h4>Player One</h4>
+        <button class="one-point">1</button>
+        <button class="two-points">2</button>
+        <button class="three-points">3</button>
+      </div>
+      <div id="board">
+        <h2 id="running-total"></h2>
+      </div>
+      <div id="player-two">
+        <h4>Player Two</h4>
+        <button class="one-point">1</button>
+        <button class="two-points">2</button>
+        <button class="three-points">3</button>
+      </div>
+    </div>
+  </div>
+  <ul id="history"></ul>
+
+  <div class="modal">
+    <div class="modal-content">
+      <span class="closer" title="Close">&times;</span>
+      <h2>Game Mode</h2>
+      <div id="modal-messages"></div>
+      <div id="game-modes">
+        <button class="pvp-mode">Player vs Player</button>
+        <button class="pvc-mode">Player vs Computer</button>
+        <button class="cvc-mode">Computer vs Computer</button>
+      </div>
     </div>
   </div>
 
+  <script src="./js/lib/computer.js"></script>
+  <script src="./js/lib/player.js"></script>
   <script src="./js/main.js"></script>
 </body>
 </html>
